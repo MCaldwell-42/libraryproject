@@ -44,7 +44,7 @@ def book_edit_form(request, book_id):
         template = 'books/form.html'
         context = {
             'book': book,
-            'all_libraries': libraries
+            'all_libraries': all_libraries
         }
 
         return render(request, template, context)

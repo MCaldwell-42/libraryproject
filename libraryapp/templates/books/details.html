@@ -1,3 +1,5 @@
+{% extends 'shared/base.html' %}
+{% block content %}
 {% load staticfiles %}
 <!DOCTYPE html>
 <html>
@@ -9,13 +11,15 @@
 
 <body>
 
-    <section id="book-details">
-        <h1>{{ book.title }}</h1>
-        <h2>By {{ book.Author }}</h2>
+<section id="book-details">
+    <h1>{{ book.title }}</h1>
+    <h2>By {{ book.Author }}</h2>
 
-        <div>Published in {{ book.YearPublished }}</div>
-        <div>ISBN: {{ book.ISBNnumber }}</div>
-    </section>
+    <div>Published in {{ book.YearPublished }}</div>
+    <div>ISBN: {{ book.ISBNnumber }}</div>
+    <div>Located in the {{ book.location.title }}</div>
+    <div>Registered by {{ book.librarian.first_name }} {{ book.librarian.last_name }}</div>
+</section>
 
     <section id="book-actions" style="display:flex;">
         <form action="{% url 'libraryapp:book' book.id %}" method="POST">
@@ -33,3 +37,4 @@
 </body>
 
 </html>
+{% endblock %}
